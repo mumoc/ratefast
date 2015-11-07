@@ -1,8 +1,12 @@
 .header {
-  padding: 10px 0;
+  @include span(full);
+
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .header__distributor {
+  max-height: 20px;
   text-align: justify;
 
   &:after {
