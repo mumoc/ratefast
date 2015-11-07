@@ -6,7 +6,7 @@ html {
   line-height: 20px;
   height: 100%;
 
-  @include breakpoint($small) {
+  @include breakpoint($medium) {
     font-size: 14px;
   }
 }
@@ -19,4 +19,3 @@ a {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
-

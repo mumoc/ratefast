@@ -1,0 +1,87 @@
+fieldset {
+  border: none;
+  margin: 0 0 1em 0;
+  padding: 0;
+
+  legend {
+    color: $legendColor;
+    display: block;
+    font-size: 1.2rem;
+    padding: 10px 0;
+
+    span {
+      font-size: 0.8rem;
+    }
+  }
+
+  label {
+    color: $labelColor;
+    display: block;
+    padding: 10px 0;
+  }
+}
+
+input {
+  @include input($baseColor);
+  @include span('full');
+
+  @include breakpoint($medium){
+    @include span(6 of 12);
+  }
+}
+
+textarea {
+  @include input($baseColor);
+
+  width: 100%;
+  resize: none;
+}
+
+input[type=button], input[type=submit] {
+  @include button($baseButtonBackground, $baseButtonColor);
+  @include border-radius(5px);
+
+  padding: 10px 15px;
+  width: auto;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin: 0px 5px;
+  cursor: pointer;
+  width: auto;
+
+  & + label {
+    cursor: pointer;
+  }
+}
+
+.input {
+  position: relative;
+
+  &.error > input, textarea {
+    border: 1px solid $errorColor;
+    box-shadow: 0px 0px 3px $errorColor;
+    background-color: $errorBackground;
+  }
+}
+
+.input-error {
+  display: none;
+  position: absolute;
+  right: 10px;
+  text-align: right;
+  top: 50%;
+  transform: translateY(-50%);
+  vertical-align: middle;
+  color: $errorColor;
+
+  .error & {
+    display: block;
+  }
+}
+

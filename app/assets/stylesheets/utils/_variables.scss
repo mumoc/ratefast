@@ -1,7 +1,10 @@
 @import 'colors';
 
 // Breakpoints
-$small: 768px;
+$medium: min-width 768px;
+
+// Animations
+$transitionTime: 500ms !default;
 
 // Fonts
 $openSans: 14px normal (Open Sans, sans-serif);
@@ -9,3 +12,11 @@ $openSans: 14px normal (Open Sans, sans-serif);
 // HTML/Body
 $baseColor: $black !default;
 $baseFont: $openSans !default;
+
+// Inputs
+$labelColor: $grayCapeCode !default;
+$legendColor: $grayCapeCode !default;
+
+// Buttons
+$baseButtonColor: $white !default;
+$baseButtonBackground: $redFireEngine !default;
