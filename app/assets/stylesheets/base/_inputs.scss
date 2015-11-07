@@ -23,7 +23,11 @@ fieldset {
 
 input {
   @include input($baseColor);
-  width: 100%;
+  @include span('full');
+
+  @include breakpoint($medium){
+    @include span(6 of 12);
+  }
 }
 
 textarea {

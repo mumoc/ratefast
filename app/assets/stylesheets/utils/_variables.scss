@@ -1,7 +1,7 @@
 @import 'colors';
 
 // Breakpoints
-$small: 768px;
+$medium: min-width 768px;
 
 // Animations
 $transitionTime: 500ms !default;
