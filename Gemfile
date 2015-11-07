@@ -1,11 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
-
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'omniauth-github', github: 'intridea/omniauth-github'
 gem 'pg'
 gem 'sass-rails', '~> 5.0.0'
 gem 'susy'
@@ -16,7 +17,8 @@ gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'byebug'
+  gem 'pry-rails'
+  gem 'pry-nav'
 end
 
 group :development do
