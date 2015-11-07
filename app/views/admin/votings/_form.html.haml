@@ -1,0 +1,34 @@
+= form_for [:admin, @voting] do |f|
+  = f.label :title
+  = f.text_field :title
+
+  %br
+
+  %p Items
+
+  = f.fields_for :items do |itf|
+    = itf.hidden_field :user_id
+    = itf.hidden_field :id
+
+    = itf.label :title
+    = itf.text_field :title
+
+    = itf.label :special
+    = itf.check_box :special
+
+    = itf.label :fixed
+    = itf.check_box :fixed
+
+    = itf.label :birthday_name
+    = itf.text_field :birthday_name
+
+    - if @voting.persisted?
+      = itf.label :_destroy
+      = itf.check_box :_destroy
+
+    %br
+
+  %br
+  %br
+
+  = f.submit
