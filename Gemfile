@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'aasm'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'breakpoint'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
