@@ -1,0 +1,11 @@
+%p Current Items
+= form_for @voting do |f|
+  = f.fields_for :items do |itf|
+    = itf.hidden_field :user_id
+    - if itf.object.persisted?
+      %p= itf.object.title
+    - else
+      %p
+        = itf.label :title
+        = itf.text_field :title
+  = f.submit

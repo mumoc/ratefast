@@ -17,3 +17,21 @@ $ ->
       $target.data('event', data.next_status)
       $target.parents('tr').children('.voting-status').text(data.status)
     )
+
+  $('.btn-vote').on 'click', ->
+    $target  = $(@)
+    vote     = $target.data('vote')
+    itemID   = $target.data('item-id')
+
+    $.ajax({
+      url: "/items/#{itemID}"
+      method: 'PUT'
+      data: {
+        item: {
+          vote: vote
+        }
+      }
+    }).done((data) ->
+      $target.attr('disabled', 'disabled')
+      $target.siblings('.btn-vote').removeAttr('disabled')
+    )
