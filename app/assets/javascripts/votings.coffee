@@ -1,3 +1,19 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$ ->
+  $('.btn-change-status').on 'click', ->
+    $target  = $(@)
+    event    = $target.data('event')
+    votingID = $target.data('voting-id')
+
+    $.ajax({
+      url: "/admin/votings/#{votingID}"
+      method: 'PUT'
+      data: {
+        voting: {
+          event: event
+        }
+      }
+    }).done((data) ->
+      $target.text(data.btn_text)
+      $target.data('event', data.next_status)
+      $target.parents('tr').children('.voting-status').text(data.status)
+    )

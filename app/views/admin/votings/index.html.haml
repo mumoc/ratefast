@@ -12,7 +12,8 @@
       %tr
         %td= voting.id
         %td= voting.title
-        %td= voting.status
+        %td.voting-status= voting.status
         %td
           = link_to 'Edit', edit_admin_voting_path(voting)
           = link_to 'Delete', admin_voting_path(voting), method: :delete
+          %button.btn-change-status{ 'data-event' => "#{next_event(voting.status)}", 'data-voting-id' => "#{voting.id}" }= change_event_btn_text(voting.status)

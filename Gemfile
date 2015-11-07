@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'aasm'
 gem 'breakpoint'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
