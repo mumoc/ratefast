@@ -1,0 +1,18 @@
+!!!
+%html{ lang: 'en' }
+  %head
+    %title Ratefast
+    = render partial: 'meta'
+    = stylesheet_link_tag    'application', media: 'all'
+    = csrf_meta_tags
+
+  %body
+    = render partial: 'header'
+
+    %main
+      = yield
+
+    = render partial: 'active_voting'
+    = render partial: 'footer'
+    = render partial: 'javascripts'
+
