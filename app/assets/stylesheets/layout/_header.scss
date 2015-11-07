@@ -1,6 +1,7 @@
 .header {
   @include span(full);
 
+  background-color: $headerBackground;
   padding-bottom: 10px;
   padding-top: 10px;
 }
@@ -21,6 +22,7 @@
 .header__vote {
   display: inline-block;
   vertical-align: middle;
+  color: $headerColor;
 }
 
 .header__app-title {
