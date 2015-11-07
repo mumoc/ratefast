@@ -1,0 +1,7 @@
+@import "susy";
+@import "breakpoint";
+
+$small: 768px;
+
+body { @include container(1200px); }
+
