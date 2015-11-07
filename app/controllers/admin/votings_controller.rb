@@ -28,23 +28,10 @@ module Admin
     end
 
     def update
-      @voting.update_attributes voting_params
+      change_status and return if event_params.present?
 
-      if event_params.present?
-        @voting.send "#{event_params}!".to_sym
-
-        render json: {
-          status: @voting.status,
-          next_status: next_event(@voting.status),
-          btn_text: change_event_btn_text(@voting.status)
-        }
-      else
-        @voting.update_attributes voting_params
-
-        if @voting.save
-          redirect_to admin_votings_path
-        end
-      end
+      @voting.update_attributes! voting_params
+      redirect_to admin_votings_path
     end
 
     def destroy
@@ -79,6 +66,16 @@ module Admin
 
     def items_attributes
       %w{ id title fixed special birthday_name user_id _destroy }
+    end
+
+    def change_status
+      @voting.send "#{event_params}!".to_sym
+
+      render json: {
+        status: @voting.status,
+        next_status: next_event(@voting.status),
+        btn_text: change_event_btn_text(@voting.status)
+      }
     end
   end
 end
