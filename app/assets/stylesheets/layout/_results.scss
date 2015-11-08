@@ -26,6 +26,11 @@
   .item-title {
     @include span(6 of 12)
   }
+
+  a.btn {
+    position: relative;
+    top: 10px;
+  }
 }
 
 .days {
