@@ -44,6 +44,7 @@ module VotingsHelper
   end
 
   def show_voting_buttons?(item)
-    @voting && !item.special && !item.fixed
+    @voting && @voting.voting? &&
+      !item.special && !item.fixed
   end
 end
