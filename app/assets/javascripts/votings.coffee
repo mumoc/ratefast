@@ -13,9 +13,13 @@ $ ->
         }
       }
     }).done((data) ->
-      $target.text(data.btn_text)
-      $target.data('event', data.next_status)
-      $target.parents('tr').children('.voting-status').text(data.status)
+      debugger;
+      if data.next_status == 'publish'
+        $target.remove()
+      else
+        $target.text(data.btn_text)
+        $target.data('event', data.next_status)
+        $target.parents('tr').children('.voting-status').text(data.status)
     )
 
   $('.btn-vote').on 'click', ->
