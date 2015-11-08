@@ -1,20 +1,22 @@
-= link_to 'Create new Voting', new_admin_voting_path
+%p.text-center
+  = link_to 'Create new Voting', new_admin_voting_path, class: 'btn'
 
-%table
-  %thead
-    %tr
-      %th ID
-      %th Title
-      %th Status
-      %th Actions
-  %tbody
-    - @votings.each do |voting|
+- if @votings.any?
+  %table
+    %thead
       %tr
-        %td= voting.id
-        %td
-          = link_to voting.title, admin_result_path(voting.id)
-        %td.voting-status= voting.status
-        %td
-          = link_to 'Edit', edit_admin_voting_path(voting)
-          = link_to 'Delete', admin_voting_path(voting), method: :delete
-          %button.btn-change-status{ 'data-event' => "#{next_event(voting.status)}", 'data-voting-id' => "#{voting.id}" }= change_event_btn_text(voting.status)
+        %th ID
+        %th Title
+        %th Status
+        %th Actions
+    %tbody
+      - @votings.each do |voting|
+        %tr
+          %td= voting.id
+          %td
+            = link_to voting.title, admin_result_path(voting.id)
+          %td.voting-status= voting.status
+          %td
+            = link_to 'Edit', edit_admin_voting_path(voting), class: 'btn full text-center'
+            = link_to 'Delete', admin_voting_path(voting), method: :delete, class: 'btn full text-center', data: { confirm: 'Are you sure to delete ?' }
+            %button.btn-change-status{ class: 'block',  'data-event' => "#{next_event(voting.status)}", 'data-voting-id' => "#{voting.id}" }= change_event_btn_text(voting.status)
