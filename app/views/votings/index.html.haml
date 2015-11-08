@@ -1,0 +1,16 @@
+%h1 Existing votings
+
+%table
+  %thead
+    %tr
+      %th Title
+      %th Status
+  %tbody
+    - @votings.each do |voting|
+      %tr
+        %td
+          - if voting.open? || voting.voting?
+            = link_to voting.title, voting_path(voting)
+          - else
+            = voting.title
+        %td.voting-status= voting.status

@@ -20,4 +20,13 @@ module VotingsHelper
 
     mappings[status.to_sym]
   end
+
+  def voting_template(status)
+    mappings = {
+      open: 'new_items_form',
+      voting: 'voting_form'
+    }
+
+    mappings[status.to_sym]
+  end
 end
