@@ -1,6 +1,7 @@
 %h1.text-center
   #{@voting.title}
-  %small #{@voting.status}
+  %p
+    %small #{@voting.status}
 
 %table
   = render voting_template(@voting.status)
