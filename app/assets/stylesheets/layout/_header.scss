@@ -58,3 +58,20 @@
     visibility: hidden;
   }
 }
+
+.header__messages-container {
+  background-color: $headerMessagesBackground;
+  padding: 10px;
+}
+
+.header__message {
+  color: $white;
+  margin: 0;
+
+  a {
+    color: $headerColor;
+    text-decoration: underline;
+  }
+}
+
+
