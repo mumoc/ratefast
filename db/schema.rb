@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108004209) do
+ActiveRecord::Schema.define(version: 20151108155254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20151108004209) do
     t.integer  "user_id"
     t.integer  "voting_id"
     t.string   "title"
-    t.boolean  "special"
-    t.boolean  "fixed"
+    t.boolean  "special",                 default: false
+    t.boolean  "fixed",                   default: false
     t.string   "birthday_name"
     t.integer  "image_id"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.integer  "cached_votes_total",      default: 0
     t.integer  "cached_votes_score",      default: 0
     t.integer  "cached_votes_up",         default: 0
