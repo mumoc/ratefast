@@ -1,12 +1,24 @@
 .recommendations {
   .btn-vote {
-    background: transparent;
     border: none;
+    height: 35px;
     padding: 0;
+    width: 35px;
 
-    &:disabled {
-      background: $redFireEngine;
-      border-radius: 5px;
+    &.down-vote {
+      background: image_url('down-off') center no-repeat;
+
+      &:disabled {
+        background: image_url('down-on') center no-repeat;
+      }
+    }
+
+    &.up-vote {
+      background: image_url('up-off') center no-repeat;
+
+      &:disabled {
+        background: image_url('up-on') center no-repeat;
+      }
     }
   }
 
