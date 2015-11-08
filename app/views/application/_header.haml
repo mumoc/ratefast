@@ -1,26 +1,21 @@
 %header.header
   .header__top-bar
-    .header__distributor.container
-      .header__user-menu
-        - if user_signed_in?
-          - if current_user.admin?
-            %a.header__menu-icon{ href: admin_dashboard_path, title: 'Admin Dashboard' } Admin
-            .separator
-          - else
-          %a.header__menu-icon{ href: destroy_user_session_path, title: 'Sign out' } Sign Out
-
+    = link_to 'How it works', how_it_works_path, class: 'header__link'
+    .header__user-menu
+      - if user_signed_in?
+        - if current_user.admin?
+          %a.header__link{ href: admin_dashboard_path, title: 'Admin Dashboard' } Admin
+          .separator
         - else
-          %a.header__menu-icon{ href: new_user_session_path, title: 'Sign In' } Sign In
-      %a.header__app-title{ href: '/', title: 'Rate Fast Home' } Rate Fast
-      %a.header__vote{ href: votings_path, title: 'Vote Now' } Vote Now
+        %a.header__link{ href: destroy_user_session_path, title: 'Sign out' } Sign Out
+
+      - else
+        %a.header__link{ href: new_user_session_path, title: 'Sign In' } Sign In
 
   .header__banner
     = link_to root_path do
-      = image_tag 'ratefast_logo.png', class: 'header__logo', alt: 'Rate Fast Logo'
+      = image_tag 'logo-v2.png', class: 'header__logo', alt: 'Rate Fast Logo'
 
-  .header__messages-container
-    %p.header__message.text-center
-      Don't know what to do? Take a look at
-      = link_to 'How it works!!', how_it_works_path
+  %a.header__link.header__vote{ href: votings_path, title: 'Vote Now' } Vote Now
 
 

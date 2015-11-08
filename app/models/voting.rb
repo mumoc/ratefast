@@ -31,6 +31,10 @@ class Voting < ActiveRecord::Base
     where(status: 'published').order(updated_at: :asc).last
   end
 
+  def self.under_review
+    where(status: 'reviewing').order(updated_at: :asc).last
+  end
+
   def self.current
     where(status: [:open, :voting]).last
   end
@@ -38,8 +42,22 @@ class Voting < ActiveRecord::Base
   private
 
   def create_results
-    self.items.where('fixed = true OR special = true').each do |item|
+    fixed_items.each do |item|
       Result.create(item: item, voting: self)
     end
+  end
+
+  def fixed_items
+    self.items.select { |item| item.fixed || item.special }
+  end
+
+  def my_items(user_id)
+    self.items.select do
+      |item| item.user_id == user_id && item.persisted?
+    end
+  end
+
+  def in_review_or_published?
+    self.reviewing? || self.published?
   end
 end

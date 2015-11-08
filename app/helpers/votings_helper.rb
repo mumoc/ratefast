@@ -34,4 +34,17 @@ module VotingsHelper
     items = voting.items
     !items.map(&:persisted?).include? false
   end
+
+  def upvoted_item?(item)
+    item.get_upvotes.where(voter_id: current_user.id).present?
+  end
+
+  def downvoted_item?(item)
+    item.get_downvotes.where(voter_id: current_user.id).present?
+  end
+
+  def show_voting_buttons?(item)
+    @voting && @voting.voting? &&
+      !item.special && !item.fixed
+  end
 end

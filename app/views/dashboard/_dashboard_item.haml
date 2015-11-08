@@ -1,5 +1,5 @@
 %article.dashboard-item{ class: ('today' if is_today?(dashboard_item_counter)), id: day_name(dashboard_item_counter) }
-  %h3.dashboard-item__week-day= day_name(dashboard_item_counter)
+  %h3.dashboard-item__week-day= (is_today?(dashboard_item_counter) && 'Today' || day_name(dashboard_item_counter))
   .dashboard-item__content
     .dashboard-item__image-wrapper
       %img.dashboard-item__image{ src: item_image_url(dashboard_item), alt: dashboard_item.title }
@@ -10,6 +10,18 @@
         %strong Happy Birthday!!
         %br
         = dashboard_item.birthday_name
+    - if show_voting_buttons?(dashboard_item)
+      %button.btn-vote{ 'data-vote' => 1,
+        'data-voting-id' => "#{@voting.id}",
+        'data-item-id' => "#{dashboard_item.id}",
+        disabled: upvoted_item?(dashboard_item) }= image_tag 'ok.svg',
+        class: 'icon'
+      %button.btn-vote{ 'data-vote' => -1,
+        'data-voting-id' => "#{@voting.id}",
+        'data-item-id' => "#{dashboard_item.id}",
+        disabled: downvoted_item?(dashboard_item) }= image_tag 'not.png',
+        class: 'icon'
+
 
   /%footer.dashboard-item__footer
   /  = button_tag 'Feedback', class: 'dashboard-item__feedback-button'

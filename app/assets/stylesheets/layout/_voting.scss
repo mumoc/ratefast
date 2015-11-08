@@ -1,0 +1,25 @@
+.recommendations {
+  .btn-vote {
+    background: transparent;
+    border: none;
+    padding: 0;
+
+    &:disabled {
+      background: $redFireEngine;
+      border-radius: 5px;
+    }
+  }
+
+  .dashboard-item__content {
+    text-align: center
+  }
+
+  .dashboard-item__week-day {
+    display: none
+  }
+
+  a.btn {
+    position: relative;
+    top: 10px;
+  }
+}

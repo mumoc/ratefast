@@ -7,12 +7,16 @@ class VotingsController < ApplicationController
   end
 
   def show
+    if @voting.in_review_or_published?
+      redirect_to root_path and return
+    end
+
     build_items if @voting.open?
   end
 
   def update
     @voting.update_attributes! voting_params
-    redirect_to votings_path
+    redirect_to voting_path(@voting)
   end
 
   private

@@ -24,7 +24,8 @@
   'layout/header',
   'layout/footer',
   'layout/active_voting',
-  'layout/results';
+  'layout/results',
+  'layout/voting';
 
 // 5. Components
 @import 'components/dashboard_item';
@@ -32,6 +33,7 @@
 // 6. Page-specific styles
 @import
   'pages/dashboard',
-  'pages/how_it_works';
+  'pages/how_it_works',
+  'pages/sign_in';
 
 

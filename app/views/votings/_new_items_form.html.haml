@@ -1,12 +1,25 @@
-%p Current Items
-= form_for @voting do |f|
-  = f.fields_for :items do |itf|
-    = itf.hidden_field :user_id
-    - if itf.object.persisted?
-      %p= itf.object.title
-    - else
-      %p
-        = itf.label :title
-        = itf.text_field :title
-  - unless voting_complete(f.object)
-    = f.submit
+%table
+  %tbody
+    %tr
+      %td
+        %h2 Add up to two recommendations
+        = form_for @voting do |f|
+          = f.fields_for :items do |itf|
+            = itf.hidden_field :user_id
+            - unless itf.object.persisted?
+              %fieldset
+                = itf.label :title
+                = itf.text_field :title
+          - unless voting_complete(f.object)
+            = f.submit
+            = link_to 'Back', root_path, class: 'btn'
+
+    %tr
+      %td
+        %h2 My recommendations
+        =render partial: '/dashboard/dashboard_item', collection: @voting.my_items(current_user.id)
+
+    %tr
+      %td
+        %h2 Special items
+        =render partial: '/dashboard/dashboard_item', collection: @voting.fixed_items
