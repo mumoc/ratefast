@@ -12,5 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/jquery-ui.min
 //= require votings
 //= require_tree .
