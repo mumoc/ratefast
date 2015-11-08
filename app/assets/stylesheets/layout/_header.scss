@@ -1,8 +1,16 @@
 .header {
-  padding: 10px 0;
+  background-image: image_url('hero.jpg');
+  background-size: cover;
+}
+
+.header__top-bar {
+  background-color: $headerBackground;
+  max-height: 36px;
+  padding: 5px 10px;
 }
 
 .header__distributor {
+  max-height: 20px;
   text-align: justify;
 
   &:after {
@@ -17,10 +25,31 @@
 .header__vote {
   display: inline-block;
   vertical-align: middle;
+  color: $headerColor;
 }
 
 .header__app-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
+}
+
+.header__banner {
+  padding: 30px;
+  position: relative;
+  text-align: center;
+
+  @include breakpoint($medium) {
+    padding: 85px;
+  }
+}
+
+.header__logo {
+  @include transition(500ms ease-in-out);
+  max-width: 100%;
+  height: 60px;
+
+  @include breakpoint($medium) {
+    height: 80px;
+  }
 }
 

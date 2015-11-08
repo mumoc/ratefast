@@ -1,0 +1,28 @@
+%slide-panel {
+  @include transition(300ms ease);
+
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 9999;
+}
+
+%slide-panel__right {
+  @extend %slide-panel;
+
+  right: -100%;
+}
+
+%slide-panel__right.open {
+  right: -1px;
+}
+
+%slide-panel__left {
+  @extend %slide-panel;
+
+  left: -100%;
+}
+
+%slide-panel__left.open {
+  left: -1px;
+}

@@ -1,0 +1,22 @@
+.active-voting {
+  @extend %slide-panel__right;
+  @include span(10);
+  @include linear-gradient(to right, $activeVotingBackground);
+
+  color: $white;
+  display: table;
+
+  @include breakpoint($medium) {
+    @include span(4 of 12);
+    @include linear-gradient(to right, $white);
+
+    border-left: 1px solid $redDarkTan;
+    color: $black;
+    position: inherit;
+  }
+}
+
+.active-voting__container {
+  display: table-row;
+  height: 100%;
+}
