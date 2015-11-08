@@ -47,6 +47,11 @@ button, input[type=submit] {
   &:focus {
     outline: none;
   }
+
+  &:disabled{
+    background-color: transparent;
+    color: $baseButtonBackground;
+  }
 }
 
 input[type="checkbox"],
