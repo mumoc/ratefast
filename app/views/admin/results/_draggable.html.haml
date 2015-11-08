@@ -24,3 +24,8 @@
         %li{ 'data-result-id' => "#{result.id}" }
           = result.item.title
           = link_to 'Delete', admin_result_path(result.id), method: 'delete' if !result.item.fixed and ! result.item.special
+      - if @results.ready_to_schedule.size < 5
+        - (5 - @results.ready_to_schedule.size).times do
+          %li.empty &nbsp;
+
+  %button.update-results Save & Publish

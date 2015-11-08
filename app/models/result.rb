@@ -7,6 +7,7 @@ class Result < ActiveRecord::Base
 
   def self.update_results_date(indexes)
     indexes.each do |i|
+      return unless i[0] =~ /^[0-9]+$/
       result = Result.find(i[0])
       result.update_attribute(:scheduled_on, find_date(i[1]))
     end

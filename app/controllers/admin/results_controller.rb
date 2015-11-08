@@ -25,8 +25,12 @@ module Admin
 
     def update
       @results = Result.update_results_date(params[:result][:days])
+      result = Result.find(params[:id])
+      voting = result.voting
 
-      render json: { data: @results }
+      voting.publish! if params[:result][:publish] != "false"
+
+      render json: { data: @results, published: voting.published? }
     end
 
     def destroy

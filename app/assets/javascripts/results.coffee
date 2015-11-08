@@ -17,7 +17,11 @@ $ ->
       snapToMiddle(ui.draggable, $(@))
       $(@).droppable('option', 'disabled', true)
       createResult(ui.draggable.data('item-id')).done (data) ->
+        $('.results .scheduled-list li.empty').remove()
         $("<li data-result-id='#{data.result.id}'>#{data.item.title} <a rel='nofollow' data-method='delete' href='/admin/results/#{data.result.id}'>Delete</a></li>").appendTo('.results .scheduled-list')
+
+        if $('.results .scheduled-list li').length < 5
+          $("<li class='empty'>&nbsp;</li>").appendTo('.results .scheduled-list') for [1..(5 - $('.results .scheduled-list li').length)]
 
     out: (event, ui) ->
       $(@).droppable('option', 'disabled', false)
@@ -28,19 +32,34 @@ $ ->
       results = {}
 
       $.map($(@).find('li'), (el) ->
+        return unless $(el).data('result-id')
         results[$(el).data('result-id')] = $(el).index()
       )
 
       updateResults(ui.item.data('result-id'), results)
   })
 
-  updateResults = (resultID, indexes) ->
+  $('.update-results').on 'click', ->
+    results = {}
+    resultID = null
+
+    $.map($('.results .scheduled-list li'), (el) ->
+      return unless $(el).data('result-id')
+      resultID = $(el).data('result-id')
+      results[$(el).data('result-id')] = $(el).index()
+    )
+
+    updateResults(resultID, results, true).done (data) ->
+      window.location = '/admin/votings' if data.published
+
+  updateResults = (resultID, indexes, publish = false) ->
     $.ajax({
       url: "/admin/results/#{resultID}"
       method: 'PUT'
       data: {
         result: {
           days: indexes
+          publish: publish
         }
       }
     })
