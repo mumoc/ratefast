@@ -1,16 +1,21 @@
-%h1 Schedule your dishes.
+%h1.section-title Schedule your items.
 
 .items
+  %h3 1. Select and Drag your Voting items
   - @results.items.each do |item|
     .item-draggable{ 'data-item-id' => "#{item.id}" }
-      %p= item.title
-      %p= item.cached_votes_score
+      %p.title= item.title
+      %p.total-votes
+        Votes:
+        = item.cached_votes_score
 
 .selected-items
+  %h3 2. Drop your selected items here
   - (5 - @results.ready_to_schedule.size).times do
     .item-droppable
 
 .scheduled
+  %h3.schedule-header 3. Schedule your selected items
   .days
     %ul.scheduled-list
       %li Monday
@@ -23,9 +28,9 @@
       - @results.ready_to_schedule.each do |result|
         %li{ 'data-result-id' => "#{result.id}" }
           = result.item.title
-          = link_to 'Delete', admin_result_path(result.id), method: 'delete' if !result.item.fixed and ! result.item.special
+          = link_to 'Delete', admin_result_path(result.id), method: 'delete', class: 'btn delete-result' if !result.item.fixed and ! result.item.special
       - if @results.ready_to_schedule.size < 5
         - (5 - @results.ready_to_schedule.size).times do
           %li.empty &nbsp;
-
-  %button.update-results Save & Publish
+  .actions.full
+    %button.update-results Save & Publish

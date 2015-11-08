@@ -18,7 +18,7 @@ $ ->
       $(@).droppable('option', 'disabled', true)
       createResult(ui.draggable.data('item-id')).done (data) ->
         $('.results .scheduled-list li.empty').remove()
-        $("<li data-result-id='#{data.result.id}'>#{data.item.title} <a rel='nofollow' data-method='delete' href='/admin/results/#{data.result.id}'>Delete</a></li>").appendTo('.results .scheduled-list')
+        $("<li data-result-id='#{data.result.id}'>#{data.item.title} <a class='btn delete-result' rel='nofollow' data-method='delete' href='/admin/results/#{data.result.id}'>Delete</a></li>").appendTo('.results .scheduled-list')
 
         if $('.results .scheduled-list li').length < 5
           $("<li class='empty'>&nbsp;</li>").appendTo('.results .scheduled-list') for [1..(5 - $('.results .scheduled-list li').length)]
