@@ -8,7 +8,7 @@ module ApplicationHelper
     controller.controller_name == 'dashboard'
   end
 
-  def day_name(item)
-    item.scheduled_on && I18n.l(item.scheduled_on, format: :weekday)
+  def day_name(index)
+    %w{Monday Tuesday Wednesday Thursday Friday}[index]
   end
 end
