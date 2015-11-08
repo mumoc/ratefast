@@ -14,7 +14,7 @@
 }
 
 %slide-panel__right.open {
-  right: 0px;
+  right: -1px;
 }
 
 %slide-panel__left {
@@ -24,5 +24,5 @@
 }
 
 %slide-panel__left.open {
-  left: 0px;
+  left: -1px;
 }

@@ -5,4 +5,4 @@ $susy: (
   gutter-position: inside
 );
 
-body { @include container(95%); }
+.container { @include container(95%); }

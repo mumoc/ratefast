@@ -1,5 +1,10 @@
 %header.header
-  .header__distributor
-    %a.header__menu-icon{ href: '#', title: 'User Menu' } User menu
-    = image_tag 'logo.png', class: 'header__logo', alt: 'Ratefast'
-    %a.header__vote{ href: '#', title: 'Vote Now' } Vote Now
+  .header__top-bar
+    .header__distributor.container
+      %a.header__menu-icon{ href: '#', title: 'User Menu' } User menu
+      %a.header__app-title{ href: '/', title: 'Rate Fast Home' } Rate Fast
+      %a.header__vote{ href: '#', title: 'Vote Now' } Vote Now
+
+  .header__banner
+    = image_tag 'logo.png', class: 'header__logo', alt: 'Rate Fast Logo'
+
