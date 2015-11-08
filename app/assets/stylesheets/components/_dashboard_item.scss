@@ -1,8 +1,9 @@
 .dashboard-item {
-  border-top: 2px solid $black40;
   padding-top: 10px;
   padding-bottom: 10px;
   margin: 10px;
+
+  border-bottom: 1px solid $redFireEngine;
 
   &.today {
     border: 2px solid $redFireEngine;
@@ -10,6 +11,8 @@
 
   @include breakpoint($medium) {
     @include span(2);
+
+    border-bottom: none;
   }
 }
 
@@ -24,8 +27,8 @@
 }
 
 .dashboard-item__image {
-  width: 100%;
-  max-height: 100%;
+  max-width: 100%;
+  height: auto;
 }
 
 .dashboard-item__title {

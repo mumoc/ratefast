@@ -5,6 +5,10 @@ class Item < ActiveRecord::Base
   has_one    :image
   belongs_to :user
   belongs_to :voting
+  has_one    :result
+
+  delegate :url, to: :image, prefix: true
+  delegate :scheduled_on, to: :result
 
   def self.fixed(voting_id)
     Item.where(voting_id: voting_id, fixed: true)
@@ -15,7 +19,7 @@ class Item < ActiveRecord::Base
   end
 
   def self.most_voted(voting_id)
-    Item.where(voting_id: voting_id, fixed: false, special: false).order('cached_votes_score DESC')
+    Item.where(voting_id: voting_id, fixed: nil, special: nil).order('cached_votes_score DESC')
   end
 
   def self.for_results(voting_id)

@@ -1,7 +1,7 @@
-%aside.active-voting
+%aside.active-voting.open
   .active-voting__content
     - if @current_voting
-      = render partial: @current_voting.status
+      = render partial: @current_voting.status, locals: { voting: @current_voting }
     - else
       %p
         %strong There's no active voting right now.
