@@ -10,6 +10,11 @@ class VotingsController < ApplicationController
     build_items if @voting.open?
   end
 
+  def update
+    @voting.update_attributes! voting_params
+    redirect_to votings_path
+  end
+
   private
 
   def voting_params
