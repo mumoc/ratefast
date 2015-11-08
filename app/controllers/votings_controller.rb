@@ -12,7 +12,7 @@ class VotingsController < ApplicationController
 
   def update
     @voting.update_attributes! voting_params
-    redirect_to votings_path
+    redirect_to voting_path(@voting)
   end
 
   private

@@ -10,6 +10,18 @@
         %strong Happy Birthday!!
         %br
         = dashboard_item.birthday_name
+    - if !dashboard_item.special && !dashboard_item.fixed
+      %button.btn-vote{ 'data-vote' => 1,
+        'data-voting-id' => "#{@voting.id}",
+        'data-item-id' => "#{dashboard_item.id}",
+        disabled: upvoted_item?(dashboard_item) }= image_tag 'ok.svg',
+        class: 'icon'
+      %button.btn-vote{ 'data-vote' => -1,
+        'data-voting-id' => "#{@voting.id}",
+        'data-item-id' => "#{dashboard_item.id}",
+        disabled: downvoted_item?(dashboard_item) }= image_tag 'not.png',
+        class: 'icon'
+
 
   /%footer.dashboard-item__footer
   /  = button_tag 'Feedback', class: 'dashboard-item__feedback-button'
