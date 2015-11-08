@@ -28,8 +28,13 @@
   position: relative;
 }
 
+.dashboard-item__image-wrapper {
+  min-height: 140px;
+  width: 100%;
+}
+
 .dashboard-item__image {
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 
@@ -55,4 +60,10 @@
   position: absolute;
   top: -15px;
   left: -15px;
+  width: 60px;
+
+  @include breakpoint($medium) {
+    top: -20px;
+    left: -20px;
+  }
 }

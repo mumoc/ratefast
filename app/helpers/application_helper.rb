@@ -11,4 +11,8 @@ module ApplicationHelper
   def day_name(index)
     %w{Monday Tuesday Wednesday Thursday Friday}[index]
   end
+
+  def item_image_url(item)
+    item.image_url || image_url('default.png')
+  end
 end

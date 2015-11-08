@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
   belongs_to :voting
   has_one    :result
 
-  delegate :url, to: :image, prefix: true
+  delegate :url, to: :image, prefix: true, allow_nil: true
   delegate :scheduled_on, to: :result
 
   def self.fixed(voting_id)
