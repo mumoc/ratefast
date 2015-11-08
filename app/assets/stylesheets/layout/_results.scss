@@ -2,7 +2,7 @@
   @include span('full');
 
   @include breakpoint($medium) {
-    @include span(6 of 12);
+    @include span(3 of 12);
   }
 
   .item {
@@ -33,10 +33,10 @@
   }
 }
 
-.days {
+.selected-items {
   @include span(4 of 12);
 
-  .day-droppable {
+  .item-droppable {
     border: 1px solid $redOldBrick;
     height: 100px;
     margin: 10px 0;
@@ -44,5 +44,23 @@
 }
 
 .scheduled {
-  @include span(4 of 12)
+  @include span(5 of 12);
+
+  .scheduled-list {
+    list-style-type: none;
+  }
+
+  .days {
+    @include span(4 of 12);
+  }
+
+  .results {
+    @include span(8 of 12);
+
+    ul {
+      li {
+        cursor: move;
+      }
+    }
+  }
 }

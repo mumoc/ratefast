@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :votings
-    resources :results, only: [:show, :update]
+    resources :results, only: [:show, :update, :create, :destroy]
 
     get '', to: 'votings#index', as: 'dashboard'
   end

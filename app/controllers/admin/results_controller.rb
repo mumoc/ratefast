@@ -5,20 +5,35 @@ module Admin
     def show
       @results = OpenStruct.new(
         voting: Voting.find(params[:id]),
-        items: Item.for_results(params[:id]),
-        scheduled: Result.scheduled(params[:id])
+        items: Item.most_voted(params[:id]),
+        ready_to_schedule: Result.by_voting(params[:id])
       )
+
+      @results.items -= @results.ready_to_schedule.map(&:item)
+    end
+
+    def create
+      item = Item.find(params[:result][:item_id])
+      @result = Result.create(item: item, voting: item.voting, total_votes: item.cached_votes_score)
+
+      if @result.persisted?
+        render json: { result: @result, item: @result.item }
+      else
+        render json: { message: 'Results are full of items' }, status: :unprocessable_entity
+      end
     end
 
     def update
-      item = Item.find(params[:id])
-      voting = item.voting
+      @results = Result.update_results_date(params[:result][:days])
 
-      @result = Result.find_or_create_by(item: item, voting: voting, total_votes: item.cached_votes_score)
-      @result.find_date(params[:day])
-      if @result.save
-        render json: { data: @result }
-      end
+      render json: { data: @results }
+    end
+
+    def destroy
+      @result = Result.find(params[:id])
+      @result.destroy
+
+      redirect_to admin_result_path(@result.voting_id)
     end
   end
 end

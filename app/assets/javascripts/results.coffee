@@ -12,21 +12,49 @@ $ ->
       $(@).data('position', $(@).position())
   })
 
-  $('.day-droppable').droppable({
+  $('.item-droppable').droppable({
     drop: (event, ui) ->
       snapToMiddle(ui.draggable, $(@))
-      updateResult(ui.draggable.data('item-id'), $(@).data('scheduled'))
+      $(@).droppable('option', 'disabled', true)
+      createResult(ui.draggable.data('item-id')).done (data) ->
+        $("<li data-result-id='#{data.result.id}'>#{data.item.title} <a rel='nofollow' data-method='delete' href='/admin/results/#{data.result.id}'>Delete</a></li>").appendTo('.results .scheduled-list')
+
+    out: (event, ui) ->
+      $(@).droppable('option', 'disabled', false)
   })
 
-  updateResult = (itemID, scheduled) ->
+  $('.results ul').sortable({
+    stop: (event, ui) ->
+      results = {}
+
+      $.map($(@).find('li'), (el) ->
+        results[$(el).data('result-id')] = $(el).index()
+      )
+
+      updateResults(ui.item.data('result-id'), results)
+  })
+
+  updateResults = (resultID, indexes) ->
     $.ajax({
-      url: "/admin/results/#{itemID}"
+      url: "/admin/results/#{resultID}"
       method: 'PUT'
       data: {
-        day: scheduled
+        result: {
+          days: indexes
+        }
       }
-    }).done(->
-    )
+    })
+
+  createResult = (itemID) ->
+    $.ajax({
+      url: '/admin/results'
+      method: 'POST'
+      data: {
+        result: {
+          item_id: itemID
+        }
+      }
+    })
 
   snapToMiddle = (dragger, target) ->
     topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 2
