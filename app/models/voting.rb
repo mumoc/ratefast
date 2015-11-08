@@ -1,7 +1,6 @@
 class Voting < ActiveRecord::Base
   include AASM
 
-  scope :last_published, -> { where(status: 'published').order(updated_at: :asc).last }
   scope :current, -> { where(status: [:open, :voting]).last }
 
   has_many :items, dependent: :destroy
@@ -28,5 +27,9 @@ class Voting < ActiveRecord::Base
     event :reopen do
       transitions to: :open
     end
+  end
+
+  def self.last_published
+    Voting.where(status: 'published').order(updated_at: :asc).last
   end
 end

@@ -1,0 +1,19 @@
+%h1 Schedule your dishes.
+
+.items
+  - @results.items.each do |item|
+    .item-draggable{ 'data-item-id' => "#{item.id}" }
+      %p= item.title
+      %p= item.cached_votes_score
+
+.days
+  .day-droppable{ 'data-scheduled' => 'monday' }
+  .day-droppable{ 'data-scheduled' => 'tuesday' }
+  .day-droppable{ 'data-scheduled' => 'wednesday' }
+  .day-droppable{ 'data-scheduled' => 'thursday' }
+  .day-droppable{ 'data-scheduled' => 'friday' }
+
+.scheduled
+  %ul
+    - @results.scheduled.each do |result|
+      %li= result.item.title
