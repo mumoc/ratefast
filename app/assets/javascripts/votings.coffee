@@ -35,3 +35,8 @@ $ ->
       $target.parent().parent().find('.btn-vote').removeAttr('disabled')
       $target.attr('disabled', 'disabled')
     )
+
+  $('input[type="checkbox"]').on 'change', ->
+    $target = $(@)
+    if $target.attr('name').match(/special/)
+      $target.parent().parent().find('fieldset.hidden').toggle()

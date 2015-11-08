@@ -8,7 +8,7 @@
     .items
       %h2.text-center Items
       = f.fields_for :items do |itf|
-        .item
+        .item.full
           = itf.hidden_field :user_id
           = itf.hidden_field :id
 
@@ -16,15 +16,15 @@
             = itf.label :title
             = itf.text_field :title
 
-          %div
+          %div.span3
             = itf.label :special
             = itf.check_box :special
 
-          %div
+          %div.span3
             = itf.label :fixed
             = itf.check_box :fixed
 
-          %fieldset
+          %fieldset.birthday.hidden.full
             = itf.label :birthday_name
             = itf.text_field :birthday_name
 
