@@ -1,0 +1,23 @@
+.items {
+  @include span(3 of 12);
+
+  .item-draggable {
+    border: 1px solid #666;
+    cursor: move;
+    margin: 10px 0;
+  }
+}
+
+.days {
+  @include span(4 of 12);
+
+  .day-droppable {
+    border: 1px solid #900;
+    height: 100px;
+    margin: 10px 0;
+  }
+}
+
+.scheduled {
+  @include span(4 of 12)
+}
