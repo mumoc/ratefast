@@ -34,4 +34,14 @@ class Voting < ActiveRecord::Base
   def self.current
     where(status: [:open, :voting]).last
   end
+
+  def fixed_items
+    self.items.select { |item| item.fixed || item.special }
+  end
+
+  def my_items(user_id)
+    self.items.select do
+      |item| item.user_id == user_id && item.persisted?
+    end
+  end
 end
