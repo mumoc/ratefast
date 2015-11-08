@@ -6,7 +6,7 @@ module Admin
       @results = OpenStruct.new(
         voting: Voting.find(params[:id]),
         items: Item.for_results(params[:id]),
-        scheduled: Result.where(voting_id: params[:id]).order('scheduled_on ASC')
+        scheduled: Result.scheduled(params[:id])
       )
     end
 
@@ -16,7 +16,9 @@ module Admin
 
       @result = Result.find_or_create_by(item: item, voting: voting, total_votes: item.cached_votes_score)
       @result.find_date(params[:day])
-      @result.save
+      if @result.save
+        render json: { data: @result }
+      end
     end
   end
 end

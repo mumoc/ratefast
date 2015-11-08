@@ -25,9 +25,8 @@ $ ->
       data: {
         day: scheduled
       }
-      done: ->
-        debugger
-    })
+    }).done(->
+    )
 
   snapToMiddle = (dragger, target) ->
     topMove = target.position().top - dragger.data('position').top + (target.outerHeight(true) - dragger.outerHeight(true)) / 2
@@ -37,5 +36,5 @@ $ ->
       top: topMove
       left: leftMove
     }, {
-      duration: 600
+      duration: 400
     })
