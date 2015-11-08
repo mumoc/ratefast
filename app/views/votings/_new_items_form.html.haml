@@ -8,4 +8,5 @@
       %p
         = itf.label :title
         = itf.text_field :title
-  = f.submit
+  - unless voting_complete(f.object)
+    = f.submit

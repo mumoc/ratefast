@@ -29,4 +29,9 @@ module VotingsHelper
 
     mappings[status.to_sym]
   end
+
+  def voting_complete(voting)
+    items = voting.items
+    !items.map(&:persisted?).include? false
+  end
 end

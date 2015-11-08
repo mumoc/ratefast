@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :results, only: :show
   end
 
-  resources :votings, only: [:index, :show]
+  resources :votings, only: [:index, :show, :update]
   resources :items, only: :update
 end
