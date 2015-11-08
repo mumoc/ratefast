@@ -39,9 +39,12 @@ table {
     padding: 5px;
     text-align: left;
   }
+  tr:nth-child(even){
+    background: $albescentWhite;
+  }
   td {
     font-size: 1.2em;
-    padding-bottom: 25px;
+    padding: 15px;
   }
 }
 
