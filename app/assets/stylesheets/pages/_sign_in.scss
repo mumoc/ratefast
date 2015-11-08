@@ -1,0 +1,9 @@
+.btn.github{
+  @include span(6 of 12);
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: $white;
+  background-color: $grayMineShaft;
+  border-color: gray;
+}
