@@ -1,3 +1,4 @@
 %h2.dashboard__title= voting_title(@last_voting)
 
-= render partial: 'dashboard_item', collection: @items
+.dashboard__distributor
+  = render partial: 'dashboard_item', collection: @items

@@ -5,7 +5,9 @@ $susy: (
   gutter-position: inside
 );
 
-.container { @include container(95%); }
+.container {
+  @include container(95%);
+}
 
 .full {
   @include span('full');

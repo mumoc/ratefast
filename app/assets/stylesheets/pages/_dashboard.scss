@@ -4,3 +4,13 @@
   padding: 10px;
   text-align: center;
 }
+
+.dashboard__distributor {
+  text-align: justify;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 100%;
+  }
+}
