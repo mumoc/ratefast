@@ -1,9 +1,7 @@
 module Admin
-  class VotingsController < ApplicationController
+  class VotingsController < Admin::ApplicationController
     include VotingsHelper
 
-    before_filter :authenticate_user!
-    before_action :check_for_admin_user
     before_action :find_voting, only: [:edit, :update, :destroy]
 
     def index
@@ -52,10 +50,6 @@ module Admin
 
     def event_params
       params[:voting][:event]
-    end
-
-    def check_for_admin_user
-      render nothing: true unless current_user.admin
     end
 
     def build_items
