@@ -11,7 +11,8 @@
     - @votings.each do |voting|
       %tr
         %td= voting.id
-        %td= voting.title
+        %td
+          = link_to voting.title, admin_result_path(voting.id)
         %td.voting-status= voting.status
         %td
           = link_to 'Edit', edit_admin_voting_path(voting)

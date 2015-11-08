@@ -5,4 +5,20 @@ class Item < ActiveRecord::Base
   has_one    :image
   belongs_to :user
   belongs_to :voting
+
+  def self.fixed(voting_id)
+    Item.where(voting_id: voting_id, fixed: true)
+  end
+
+  def self.special(voting_id)
+    Item.where(voting_id: voting_id, special: true)
+  end
+
+  def self.most_voted(voting_id)
+    Item.where(voting_id: voting_id, fixed: false, special: false).order('cached_votes_score DESC')
+  end
+
+  def self.for_results(voting_id)
+    fixed(voting_id) + special(voting_id) + most_voted(voting_id)
+  end
 end
