@@ -11,16 +11,14 @@
         %br
         = dashboard_item.birthday_name
     - if show_voting_buttons?(dashboard_item)
-      %button.btn-vote{ 'data-vote' => 1,
+      %button.btn-vote.up-vote{ 'data-vote' => 1,
         'data-voting-id' => "#{@voting.id}",
         'data-item-id' => "#{dashboard_item.id}",
-        disabled: upvoted_item?(dashboard_item) }= image_tag 'ok.svg',
-        class: 'icon'
-      %button.btn-vote{ 'data-vote' => -1,
+        disabled: upvoted_item?(dashboard_item) }
+      %button.btn-vote.down-vote{ 'data-vote' => -1,
         'data-voting-id' => "#{@voting.id}",
         'data-item-id' => "#{dashboard_item.id}",
-        disabled: downvoted_item?(dashboard_item) }= image_tag 'not.png',
-        class: 'icon'
+        disabled: downvoted_item?(dashboard_item) }
 
 
   /%footer.dashboard-item__footer
