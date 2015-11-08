@@ -39,8 +39,6 @@ class Voting < ActiveRecord::Base
     where(status: [:open, :voting]).last
   end
 
-  private
-
   def create_results
     fixed_items.each do |item|
       Result.create(item: item, voting: self)

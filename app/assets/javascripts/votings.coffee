@@ -13,7 +13,6 @@ $ ->
         }
       }
     }).done((data) ->
-      debugger;
       if data.next_status == 'publish'
         $target.remove()
       else
