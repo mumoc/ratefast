@@ -1,10 +1,14 @@
 - @voting.items.each do |item|
-  %p
-    = item.title
+  %tr
+    %td
+      = item.title
+
     - if !item.special && !item.fixed
-      %button.btn-vote{ 'data-vote' => 1,
-        'data-voting-id' => "#{@voting.id}",
-        'data-item-id' => "#{item.id}" } Up Vote
-      %button.btn-vote{ 'data-vote' => -1,
-        'data-voting-id' => "#{@voting.id}",
-        'data-item-id' => "#{item.id}" } Down Vote
+      %td
+        %button.btn-vote{ 'data-vote' => 1,
+          'data-voting-id' => "#{@voting.id}",
+          'data-item-id' => "#{item.id}" } up
+      %td
+        %button.btn-vote{ 'data-vote' => -1,
+          'data-voting-id' => "#{@voting.id}",
+          'data-item-id' => "#{item.id}" } down

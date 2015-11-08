@@ -1,4 +1,6 @@
-%h1
-  Voting for #{@voting.title} is #{@voting.status}
+%h1.text-center
+  #{@voting.title}
+  %small #{@voting.status}
 
-= render voting_template(@voting.status)
+%table
+  = render voting_template(@voting.status)
