@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   resources :votings, only: [:index, :show, :update]
   resources :items, only: :update
+
+  get '/how_it_works', to: 'pages#how_it_works'
 end

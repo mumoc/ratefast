@@ -9,11 +9,12 @@
       %a.header__vote{ href: votings_path, title: 'Vote Now' } Vote Now
 
   .header__banner
-    = image_tag 'ratefast_logo.png', class: 'header__logo', alt: 'Rate Fast Logo'
+    = link_to root_path do
+      = image_tag 'ratefast_logo.png', class: 'header__logo', alt: 'Rate Fast Logo'
 
   .header__messages-container
-    %p.header__message
+    %p.header__message.text-center
       Don't know what to do? Take a look at
-      = link_to 'How it works!!', '#'
+      = link_to 'How it works!!', how_it_works_path
 
 
