@@ -4,19 +4,21 @@
   @include linear-gradient(to right, $activeVotingBackground);
 
   color: $white;
-  display: table;
+  text-align: center;
 
   @include breakpoint($medium) {
-    @include span(4 of 12);
-    @include linear-gradient(to right, $white);
+    @include span(full);
 
-    border-left: 1px solid $redDarkTan;
-    color: $black;
+    height: auto;
     position: inherit;
   }
 }
 
-.active-voting__container {
-  display: table-row;
-  height: 100%;
+.active-voting__content {
+  @include vertical-align;
+
+  @include breakpoint($medium) {
+    transform: inherit;
+  }
 }
+

@@ -8,11 +8,11 @@
 
   %body
     = render partial: 'header'
+    = render partial: 'active_voting'
 
-    .container
-      %main.main
+    %main.main
+      .container
         = yield
-      = render partial: 'active_voting'
 
     = render partial: 'footer'
     = render partial: 'javascripts'
