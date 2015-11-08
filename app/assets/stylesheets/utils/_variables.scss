@@ -9,10 +9,11 @@ $transitionTime: 500ms !default;
 // Fonts
 $openSans: 14px normal (Open Sans, sans-serif);
 $montserrat: 14px normal ('Montserrat', sans-serif);
+$josefine: 14px normal ('Josefin Sans', sans-serif);
 
 // HTML/Body
 $baseColor: $black !default;
-$baseFont: $montserrat !default;
+$baseFont: $josefine !default;
 
 // Inputs
 $labelColor: $grayCapeCode !default;
