@@ -4,46 +4,27 @@
 }
 
 .header__top-bar {
-  background-color: $headerBackground;
   max-height: 36px;
   padding: 5px 10px;
-}
-
-.header__distributor {
-  max-height: 20px;
-  text-align: justify;
-
-  &:after {
-    content: '';
-    display: inline-block;
-    width: 100%;
-  }
+  text-align: right;
 }
 
 .header__user-menu {
   display: inline-block;
+  margin-left: 10px;
 
   .separator {
-    border-left: 1px solid $headerColor;
+    border-left: 1px solid $white;
     display: inline;
-    margin: 0 5px;
+    margin-left: 10px;
   }
 }
 
-.header__menu-icon,
-.header__app-title,
-.header__vote {
-  color: $headerColor;
+.header__link {
+  color: $white;
   display: inline-block;
-  font-size: .9rem;
-  text-decoration: underline;
-  vertical-align: middle;
-}
-
-.header__app-title {
-  font-size: 1.2rem;
-  text-decoration: none;
   text-transform: uppercase;
+  margin-left: 10px;
 }
 
 .header__banner {
@@ -67,23 +48,12 @@
 }
 
 .header__vote {
+  display: block;
+  padding: 15px;
+  text-align: right;
+
   @include breakpoint($medium) {
     visibility: hidden;
-  }
-}
-
-.header__messages-container {
-  background-color: $headerMessagesBackground;
-  padding: 10px;
-}
-
-.header__message {
-  color: $white;
-  margin: 0;
-
-  a {
-    color: $headerColor;
-    text-decoration: underline;
   }
 }
 

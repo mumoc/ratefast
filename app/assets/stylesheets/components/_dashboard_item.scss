@@ -2,11 +2,6 @@
   padding-top: 10px;
   padding-bottom: 10px;
   margin: 10px;
-  border-bottom: 1px solid $redFireEngine;
-
-  &.today {
-    border: 2px solid $redFireEngine;
-  }
 
   @include breakpoint($medium) {
     @include span(2);
@@ -19,35 +14,48 @@
 }
 
 .dashboard-item__week-day {
-  text-align: center;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
+  font-weight: normal;
   padding: 10px 0;
+  color: $black40;
+
+  .today & {
+    color: $orangePeel;
+    font-weight: bold;
+  }
 }
 
 .dashboard-item__content {
+  background-color: $white;
   position: relative;
+
+  .today & {
+    border: 5px solid $orangePeel;
+  }
 }
 
 .dashboard-item__image-wrapper {
-  min-height: 140px;
+  height: 0;
+  padding-bottom: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 .dashboard-item__image {
+  min-height: 100%;
   width: 100%;
-  height: auto;
 }
 
 .dashboard-item__title {
   color: $black80;
-  text-align: center;
   font-size: 1.5rem;
-  padding: 10px 0;
+  padding: 15px;
 }
 
 .dashboard-item__birthday-boy {
-  text-align: center;
   margin: 0;
+  padding: 15px;
+  color: $black40;
 }
 
 .dashboard-item__footer {

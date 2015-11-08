@@ -1,7 +1,7 @@
 .active-voting {
   @extend %slide-panel__right;
   @include span(10);
-  @include linear-gradient(to right, $activeVotingBackground);
+  background-color: $redBrick;
 
   color: $white;
   text-align: center;
