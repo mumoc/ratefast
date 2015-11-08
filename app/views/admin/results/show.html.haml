@@ -1,0 +1,10 @@
+%table
+  %thead
+    %tr
+      %th Title
+      %th Votes
+  %tbody
+    - @items.each do |item|
+      %tr
+        %td= item.title
+        %td= item.cached_votes_score
