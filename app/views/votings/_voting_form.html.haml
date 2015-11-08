@@ -1,14 +1,14 @@
 - @voting.items.each do |item|
   %tr
-    %td
+    %td.span8
       = item.title
 
     - if !item.special && !item.fixed
-      %td
+      %td.span2.text-center
         %button.btn-vote{ 'data-vote' => 1,
           'data-voting-id' => "#{@voting.id}",
-          'data-item-id' => "#{item.id}" } up
-      %td
+          'data-item-id' => "#{item.id}" }= image_tag 'ok.svg', class: 'icon'
+      %td.span2.text-center
         %button.btn-vote{ 'data-vote' => -1,
           'data-voting-id' => "#{@voting.id}",
-          'data-item-id' => "#{item.id}" } down
+          'data-item-id' => "#{item.id}" }= image_tag 'not.png', class: 'icon'
