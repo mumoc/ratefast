@@ -1,4 +1,4 @@
-%aside.active-voting.open
+%aside.active-voting{ class: ('open' if @current_voting) }
   .active-voting__content
     - if @current_voting
       = render partial: @current_voting.status, locals: { voting: @current_voting }

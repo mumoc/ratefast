@@ -1,7 +1,8 @@
 %article.dashboard-item
   %h3.dashboard-item__week-day= day_name(dashboard_item_counter)
   .dashboard-item__content
-    %img.dashboard-item__image{ src: dashboard_item.image_url, alt: dashboard_item.title }
+    .dashboard-item__image-wrapper
+      %img.dashboard-item__image{ src: item_image_url(dashboard_item), alt: dashboard_item.title }
     %h4.dashboard-item__title= dashboard_item.title
     - if dashboard_item.special?
       =image_tag 'cake.png', class: 'dashboard-item__birthday-badge', alt: 'BirthDay Badge'
