@@ -37,7 +37,7 @@ textarea {
   resize: none;
 }
 
-button, input[type=submit] {
+button, input[type=submit], .btn {
   @include button($baseButtonBackground, $baseButtonColor);
   @include border-radius(5px);
 

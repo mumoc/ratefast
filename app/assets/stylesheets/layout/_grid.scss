@@ -6,3 +6,6 @@ $susy: (
 );
 
 .container { @include container(95%); }
+.full {
+  @include span('full');
+}

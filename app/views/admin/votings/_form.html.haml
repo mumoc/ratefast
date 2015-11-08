@@ -1,34 +1,36 @@
-= form_for [:admin, @voting] do |f|
-  = f.label :title
-  = f.text_field :title
+%br
+#voting-create
+  = form_for [:admin, @voting] do |f|
+    %fieldset
+      = f.label :title, 'Title for this Voting Event'
+      = f.text_field :title
 
-  %br
+    .items
+      %h2.text-center Items
+      = f.fields_for :items do |itf|
+        .item
+          = itf.hidden_field :user_id
+          = itf.hidden_field :id
 
-  %p Items
+          %fieldset
+            = itf.label :title
+            = itf.text_field :title
 
-  = f.fields_for :items do |itf|
-    = itf.hidden_field :user_id
-    = itf.hidden_field :id
+          %div
+            = itf.label :special
+            = itf.check_box :special
 
-    = itf.label :title
-    = itf.text_field :title
+          %div
+            = itf.label :fixed
+            = itf.check_box :fixed
 
-    = itf.label :special
-    = itf.check_box :special
+          %fieldset
+            = itf.label :birthday_name
+            = itf.text_field :birthday_name
 
-    = itf.label :fixed
-    = itf.check_box :fixed
-
-    = itf.label :birthday_name
-    = itf.text_field :birthday_name
-
-    - if @voting.persisted?
-      = itf.label :_destroy
-      = itf.check_box :_destroy
-
-    %br
-
-  %br
-  %br
-
-  = f.submit
+          - if @voting.persisted?
+            %fieldset
+              = itf.label :_destroy
+              = itf.check_box :_destroy
+      %fieldset
+        = f.submit
