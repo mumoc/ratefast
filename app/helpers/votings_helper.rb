@@ -42,4 +42,8 @@ module VotingsHelper
   def downvoted_item?(item)
     item.get_downvotes.where(voter_id: current_user.id).present?
   end
+
+  def show_voting_buttons?(item)
+    @voting && !item.special && !item.fixed
+  end
 end

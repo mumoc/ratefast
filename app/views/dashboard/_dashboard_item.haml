@@ -10,7 +10,7 @@
         %strong Happy Birthday!!
         %br
         = dashboard_item.birthday_name
-    - if !dashboard_item.special && !dashboard_item.fixed
+    - if show_voting_buttons?(dashboard_item)
       %button.btn-vote{ 'data-vote' => 1,
         'data-voting-id' => "#{@voting.id}",
         'data-item-id' => "#{dashboard_item.id}",
