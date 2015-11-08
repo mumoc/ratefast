@@ -11,6 +11,10 @@ html {
   }
 }
 
+body {
+  height: 100%;
+}
+
 a {
   color: $baseColor;
   text-decoration: none;
@@ -19,13 +23,6 @@ a {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   line-height: 35px;
-}
-
-.header__logo {
-  width: 180px;
-  @include breakpoint($medium) {
-    width: 240px;
-  }
 }
 
 .text-center {

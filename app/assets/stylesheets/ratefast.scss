@@ -3,7 +3,8 @@
 // 1. Configuration and helpers
 @import
   'utils/variables',
-  'utils/mixins';
+  'utils/mixins',
+  'utils/slide_panel';
 
 // 2. Vendors
 @import
@@ -19,13 +20,15 @@
 // 4. Layout-related sections
 @import
   'layout/grid',
-  'layout/header';
+  'layout/main',
+  'layout/header',
+  'layout/footer',
+  'layout/active_voting';
 
 // 5. Components
-@import
-  'components/tables';
+@import 'components/dashboard_item';
 
 // 6. Page-specific styles
-// @import 'pages/';
+@import 'pages/dashboard';
 
 

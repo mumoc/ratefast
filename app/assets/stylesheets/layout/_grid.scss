@@ -1,1 +1,8 @@
-body { @include container(95%); }
+$susy: (
+  box-sizing: border-box,
+  columns: 12,
+  gutters: 1/5,
+  gutter-position: inside
+);
+
+.container { @include container(95%); }

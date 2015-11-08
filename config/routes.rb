@@ -8,8 +8,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :votings
+    resources :results, only: :show
   end
 
-  resources :votings, only: [:index, :show]
+  resources :votings, only: [:index, :show, :update]
   resources :items, only: :update
 end

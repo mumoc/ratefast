@@ -7,7 +7,12 @@ class VotingsController < ApplicationController
   end
 
   def show
-    build_items
+    build_items if @voting.open?
+  end
+
+  def update
+    @voting.update_attributes! voting_params
+    redirect_to votings_path
   end
 
   private
@@ -34,6 +39,5 @@ class VotingsController < ApplicationController
     @items = items_for_voting.times do
       @voting.items.build(user_id: current_user.id)
     end
-
   end
 end
