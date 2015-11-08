@@ -7,6 +7,10 @@ class VotingsController < ApplicationController
   end
 
   def show
+    if @voting.in_review_or_published?
+      redirect_to root_path and return
+    end
+
     build_items if @voting.open?
   end
 

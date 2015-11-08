@@ -31,6 +31,10 @@ class Voting < ActiveRecord::Base
     where(status: 'published').order(updated_at: :asc).last
   end
 
+  def self.under_review
+    where(status: 'reviewing').order(updated_at: :asc).last
+  end
+
   def self.current
     where(status: [:open, :voting]).last
   end
@@ -43,5 +47,9 @@ class Voting < ActiveRecord::Base
     self.items.select do
       |item| item.user_id == user_id && item.persisted?
     end
+  end
+
+  def in_review_or_published?
+    self.reviewing? || self.published?
   end
 end

@@ -1,6 +1,7 @@
 module ApplicationHelper
   def voting_title(voting)
-    title = voting && voting.title || 'Voting'
+    under_review = Voting.under_review.try(:status) || 'Voting'
+    title = voting && voting.title || under_review
     title.titleize
   end
 
