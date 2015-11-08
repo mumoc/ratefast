@@ -14,7 +14,7 @@ class Voting < ActiveRecord::Base
       transitions from: :open, to: :voting
     end
 
-    event :close do
+    event :close, after_commit: :create_results do
       transitions from: :voting, to: :reviewing
     end
 
@@ -37,6 +37,14 @@ class Voting < ActiveRecord::Base
 
   def self.current
     where(status: [:open, :voting]).last
+  end
+
+  private
+
+  def create_results
+    fixed_items.each do |item|
+      Result.create(item: item, voting: self)
+    end
   end
 
   def fixed_items

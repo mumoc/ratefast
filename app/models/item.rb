@@ -21,8 +21,4 @@ class Item < ActiveRecord::Base
   def self.most_voted(voting_id)
     Item.where(voting_id: voting_id, fixed: false, special: false).order('cached_votes_score DESC')
   end
-
-  def self.for_results(voting_id)
-    fixed(voting_id) + special(voting_id) + most_voted(voting_id)
-  end
 end

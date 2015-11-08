@@ -1,8 +1,11 @@
+.section-title {
+  margin: 30px 10px;
+}
 .items {
   @include span('full');
 
   @include breakpoint($medium) {
-    @include span(6 of 12);
+    @include span(3 of 12);
   }
 
   .item {
@@ -18,9 +21,27 @@
   }
 
   .item-draggable {
-    border: 1px solid #666;
+    background-color: $blueBoulder;
+    border: 1px solid $blueBoulder;
+    border-radius: 5px;
+    color: $white;
     cursor: move;
     margin: 10px 0;
+
+    &:hover {
+      background-color: $grayCapeCode;
+    }
+
+    .title {
+      text-align: center;
+    }
+
+    .total-votes {
+      color: $alabaster;
+      font: $openSans;
+      font-size: 1.2em;
+      text-align: center;
+    }
   }
 
   .item-title {
@@ -33,16 +54,71 @@
   }
 }
 
-.days {
+.selected-items {
   @include span(4 of 12);
 
-  .day-droppable {
-    border: 1px solid $redOldBrick;
+  .item-droppable {
+    border: 2px dashed $redFireEngine;
     height: 100px;
     margin: 10px 0;
   }
 }
 
 .scheduled {
-  @include span(4 of 12)
+  @include span(5 of 12);
+
+  .schedule-header {
+    margin-left: 40px;
+  }
+
+  .scheduled-list {
+    list-style-type: none;
+    color: $white;
+    font-size: .8em;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+  }
+
+  .days {
+    @include span(3 of 12);
+
+    .scheduled-list {
+      li {
+        background-color: $redFireEngine;
+        border-bottom: 1px solid $redBrick;
+      }
+    }
+  }
+
+  .results {
+    @include span(7 of 12);
+
+    .scheduled-list {
+      li {
+        background-color: $grayMasala;
+        border-bottom: 1px solid $grayCapeCode;
+        cursor: move;
+        position: relative;
+
+        .delete-result {
+          font-size: 0.9em;
+          line-height: 25px;
+          padding: 5px;
+          position: absolute;
+          right: -60px;
+          top: 7px;
+        }
+      }
+    }
+  }
+}
+
+.actions {
+  clear: both;
+  margin-top: 220px;
+
+  .update-results {
+    float: right;
+  }
 }
