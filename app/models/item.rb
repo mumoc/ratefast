@@ -8,7 +8,7 @@ class Item < ActiveRecord::Base
   has_one    :result
 
   delegate :url, to: :image, prefix: true, allow_nil: true
-  delegate :scheduled_on, to: :result
+  delegate :scheduled_on, to: :result, allow_nil: true
 
   def self.fixed(voting_id)
     Item.where(voting_id: voting_id, fixed: true)

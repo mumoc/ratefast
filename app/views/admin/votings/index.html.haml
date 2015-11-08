@@ -19,4 +19,5 @@
           %td
             = link_to 'Edit', edit_admin_voting_path(voting), class: 'btn text-center'
             = link_to 'Delete', admin_voting_path(voting), method: :delete, class: 'btn text-center', data: { confirm: 'Are you sure to delete ?' }
-            %button.btn-change-status{ class: 'block',  'data-event' => "#{next_event(voting.status)}", 'data-voting-id' => "#{voting.id}" }= change_event_btn_text(voting.status)
+            - unless voting.reviewing?
+              %button.btn-change-status{ class: 'block',  'data-event' => "#{next_event(voting.status)}", 'data-voting-id' => "#{voting.id}" }= change_event_btn_text(voting.status)

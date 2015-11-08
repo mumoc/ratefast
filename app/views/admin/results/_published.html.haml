@@ -1,0 +1,12 @@
+%table
+  %thead
+    %tr
+      %th Title
+      %th Votes
+      %th Scheduled on
+  %tbody
+    - @results.ready_to_schedule.each do |result|
+      %tr
+        %td= result.item.title
+        %td= result.item.cached_votes_score
+        %td= result.item.scheduled_on
