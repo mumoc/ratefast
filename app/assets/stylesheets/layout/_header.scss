@@ -53,3 +53,8 @@
   }
 }
 
+.header__vote {
+  @include breakpoint($medium) {
+    visibility: hidden;
+  }
+}

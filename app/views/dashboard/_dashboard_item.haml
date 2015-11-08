@@ -2,9 +2,14 @@
   %h3.dashboard-item__week-day Day
   .dashboard-item__content
     %img.dashboard-item__image{ src: 'http://www.cnnexpansion.com/media/2011/08/08/mollete.jpg', alt: 'Item Image' }
-    %h4.dashboard-item__title Item Name
+    %h4.dashboard-item__title= dashboard_item.title
+    - if dashboard_item.special?
+      =image_tag 'cake.png', class: 'dashboard-item__birthday-badge', alt: 'BirthDay Badge'
+      %p.dashboard-item__birthday-boy
+        %strong Happy Birthday!!
+        %br
+        = dashboard_item.birthday_name
+
   %footer.dashboard-item__footer
     = button_tag 'Feedback', class: 'dashboard-item__feedback-button'
-    %span.dashboard-item__badge.today Today
-    %span.dashboard-item__badge.birthday BDay
 

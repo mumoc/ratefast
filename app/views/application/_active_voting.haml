@@ -1,3 +1,10 @@
 %aside.active-voting
-  .active-voting__container
-    %p Active voting
+  .active-voting__content
+    - if @current_voting
+      = render partial: @current_voting.status
+    - else
+      %p
+        %strong There's no active voting right now.
+        %br
+        Come back later to see if there's an active voting.
+

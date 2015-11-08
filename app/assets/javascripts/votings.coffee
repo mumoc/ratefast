@@ -32,6 +32,11 @@ $ ->
         }
       }
     }).done((data) ->
+      $target.parent().parent().find('.btn-vote').removeAttr('disabled')
       $target.attr('disabled', 'disabled')
-      $target.siblings('.btn-vote').removeAttr('disabled')
     )
+
+  $('input[type="checkbox"]').on 'change', ->
+    $target = $(@)
+    if $target.attr('name').match(/special/)
+      $target.parent().parent().find('fieldset.hidden').toggle()

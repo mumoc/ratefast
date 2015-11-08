@@ -1,6 +1,9 @@
 class Voting < ActiveRecord::Base
   include AASM
 
+  scope :last_published, -> { where(status: 'published').order(updated_at: :asc).last }
+  scope :current, -> { where(status: [:open, :voting]).last }
+
   has_many :items, dependent: :destroy
   accepts_nested_attributes_for :items, reject_if: proc { |items| items['title'].blank? }, allow_destroy: true
 

@@ -19,7 +19,9 @@
   padding: 10px 0;
 }
 
-.dashboard-item__content {}
+.dashboard-item__content {
+  position: relative;
+}
 
 .dashboard-item__image {
   width: 100%;
@@ -33,20 +35,19 @@
   padding: 10px 0;
 }
 
-.dashboard-item__footer {
-  padding: 0 10px;
+.dashboard-item__birthday-boy {
+  text-align: center;
+  margin: 0;
+}
 
-  @include breakpoint($medium) {
-    padding: 0;
-  }
+.dashboard-item__footer {
+  padding: 10px 0;
 }
 
 .dashboard-item__feedback-button {}
 
-.dashboard-item__badge {
-  @include screen-reader-only;
-
-  &.today {}
-
-  &.birthday {}
+.dashboard-item__birthday-badge {
+  position: absolute;
+  top: -15px;
+  left: -15px;
 }
