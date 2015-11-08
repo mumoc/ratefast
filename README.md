@@ -10,7 +10,6 @@ Here are some user credentials: (user/password)
 
 - User 1 to 5:  `user#@user.com / 123qwe123`  (eg `user3@user.com`)
 
-
 ## Config
 
 ### Env
