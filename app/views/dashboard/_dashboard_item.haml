@@ -1,5 +1,5 @@
 %article.dashboard-item{ class: ('today' if is_today?(dashboard_item_counter)), id: day_name(dashboard_item_counter) }
-  %h3.dashboard-item__week-day= day_name(dashboard_item_counter)
+  %h3.dashboard-item__week-day= (is_today?(dashboard_item_counter) && 'Today' || day_name(dashboard_item_counter))
   .dashboard-item__content
     .dashboard-item__image-wrapper
       %img.dashboard-item__image{ src: item_image_url(dashboard_item), alt: dashboard_item.title }
