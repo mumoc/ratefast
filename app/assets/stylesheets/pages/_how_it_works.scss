@@ -1,0 +1,14 @@
+#how_it_works {
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  p {
+    text-align: justify;
+    &.text-center {
+      text-align: center;
+    }
+  }
+
+}

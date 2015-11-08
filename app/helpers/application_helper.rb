@@ -15,4 +15,12 @@ module ApplicationHelper
   def item_image_url(item)
     item.image_url || image_url('default.png')
   end
+
+  def is_today?(index)
+    today == day_name(index)
+  end
+
+  def today
+    Time.current.strftime("%A")
+  end
 end

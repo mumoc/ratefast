@@ -20,16 +20,29 @@
   }
 }
 
+.header__user-menu {
+  display: inline-block;
+
+  .separator {
+    border-left: 1px solid $headerColor;
+    display: inline;
+    margin: 0 5px;
+  }
+}
+
 .header__menu-icon,
 .header__app-title,
 .header__vote {
-  display: inline-block;
-  vertical-align: middle;
   color: $headerColor;
+  display: inline-block;
+  font-size: .9rem;
+  text-decoration: underline;
+  vertical-align: middle;
 }
 
 .header__app-title {
   font-size: 1.2rem;
+  text-decoration: none;
   text-transform: uppercase;
 }
 

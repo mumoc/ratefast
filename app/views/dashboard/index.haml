@@ -2,3 +2,10 @@
 
 .dashboard__distributor
   = render partial: 'dashboard_item', collection: @items
+
+- content_for :javascripts do
+  :javascript
+    $(document).ready(function(){
+      RateFast.ScrollTo.scroll("##{today}");
+    });
+
