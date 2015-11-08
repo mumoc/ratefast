@@ -8,8 +8,10 @@
 
   @include breakpoint($medium) {
     @include span(4 of 12);
+    @include linear-gradient(to right, $white);
 
-    height: 100%;
+    border-left: 1px solid $redDarkTan;
+    color: $black;
     position: inherit;
   }
 }
