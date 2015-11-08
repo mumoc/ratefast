@@ -6,13 +6,13 @@
   }
 
   .card {
-    
+    .inner {
+      background: $white;
+      padding: 15px;
+      min-height: 300px;
+    }
+    margin-bottom: 15px;
 
-    width: 80%;
-    margin: 15px auto;
-    padding: 15px;
-
-    background: $white;
     @include breakpoint($medium) {
       @include span(4 of 12);
     }
@@ -35,7 +35,6 @@
 
     p {
       text-align: justify;
-      font-size: 12px;
       &.text-center {
         text-align: center;
       }
