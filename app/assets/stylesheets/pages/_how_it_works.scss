@@ -6,5 +6,9 @@
 
   p {
     text-align: justify;
+    &.text-center {
+      text-align: center;
+    }
   }
+
 }
