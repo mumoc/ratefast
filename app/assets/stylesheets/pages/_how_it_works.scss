@@ -1,13 +1,47 @@
 #how_it_works {
-  img {
-    display: block;
-    margin: 0 auto;
+  background: $alabaster;
+  .title {
+    text-transform: uppercase;
+    text-align: center;
   }
 
-  p {
-    text-align: justify;
-    &.text-center {
+  .card {
+    
+
+    width: 80%;
+    margin: 15px auto;
+    padding: 15px;
+
+    background: $white;
+    @include breakpoint($medium) {
+      @include span(4 of 12);
+    }
+
+    h3 {
+      color: $orangePeel;
       text-align: center;
+    }
+
+    img {
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 25px;
+      @include breakpoint($medium) {
+        width: auto;
+        max-height: 85px;
+      }
+    }
+
+    p {
+      text-align: justify;
+      font-size: 12px;
+      &.text-center {
+        text-align: center;
+      }
+    }
+    hr {
+      border-color: transparent transparent $orangePeel transparent;
     }
   }
 
