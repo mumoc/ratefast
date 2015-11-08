@@ -14,6 +14,6 @@ class DashboardController < ApplicationController
   end
 
   def find_items
-    @items = @last_voting && @last_voting.items.first(5)
+    @items = @last_voting && Item.for_results(@last_voting.id).first(5)
   end
 end

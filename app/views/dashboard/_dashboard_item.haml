@@ -1,7 +1,7 @@
 %article.dashboard-item
-  %h3.dashboard-item__week-day Day
+  %h3.dashboard-item__week-day= day_name(dashboard_item)
   .dashboard-item__content
-    %img.dashboard-item__image{ src: 'http://www.cnnexpansion.com/media/2011/08/08/mollete.jpg', alt: 'Item Image' }
+    %img.dashboard-item__image{ src: dashboard_item.image_url, alt: dashboard_item.title }
     %h4.dashboard-item__title= dashboard_item.title
     - if dashboard_item.special?
       =image_tag 'cake.png', class: 'dashboard-item__birthday-badge', alt: 'BirthDay Badge'
@@ -10,6 +10,6 @@
         %br
         = dashboard_item.birthday_name
 
-  %footer.dashboard-item__footer
-    = button_tag 'Feedback', class: 'dashboard-item__feedback-button'
+  /%footer.dashboard-item__footer
+  /  = button_tag 'Feedback', class: 'dashboard-item__feedback-button'
 
