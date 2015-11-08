@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
 
   private
   def find_current_voting
-    @current_voting = Voting.where(status: [:open, :voting]).last
+    @current_voting = Voting.current
   end
 
   def find_last_voting
@@ -14,6 +14,6 @@ class DashboardController < ApplicationController
   end
 
   def find_items
-    @items = @last_voting.items.first(5)
+    @items = @last_voting && @last_voting.items.first(5)
   end
 end

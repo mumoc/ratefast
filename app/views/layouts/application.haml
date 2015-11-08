@@ -8,8 +8,7 @@
 
   %body
     = render partial: 'header'
-    = render partial: 'active_voting'
-
+    = render partial: 'active_voting' if is_dashboard?
     %main.main
       .container
         = yield
