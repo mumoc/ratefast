@@ -1,10 +1,35 @@
 .items {
-  @include span(3 of 12);
+  @include span('full');
+
+  @include breakpoint($medium) {
+    @include span(6 of 12);
+  }
+
+  .item {
+    margin-bottom: 20px;
+
+    .span2 {
+      margin-top: 20px;
+      @include breakpoint($medium) {
+        margin-top: 30px;
+      }
+
+    }
+  }
 
   .item-draggable {
     border: 1px solid #666;
     cursor: move;
     margin: 10px 0;
+  }
+
+  .item-title {
+    @include span(6 of 12)
+  }
+
+  a.btn {
+    position: relative;
+    top: 10px;
   }
 }
 
@@ -12,7 +37,7 @@
   @include span(4 of 12);
 
   .day-droppable {
-    border: 1px solid #900;
+    border: 1px solid $redOldBrick;
     height: 100px;
     margin: 10px 0;
   }

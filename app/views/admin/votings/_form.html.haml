@@ -12,25 +12,27 @@
           = itf.hidden_field :user_id
           = itf.hidden_field :id
 
-          %fieldset
+          .item-title
             = itf.label :title
-            = itf.text_field :title
+            = itf.text_field :title, class: 'full'
 
-          %div.span3
+          %div.span2
             = itf.label :special
             = itf.check_box :special
 
-          %div.span3
+          %div.span2
             = itf.label :fixed
             = itf.check_box :fixed
+
+          - if @voting.persisted?
+            %div.span2
+              = itf.label :_destroy
+              = itf.check_box :_destroy
 
           %fieldset.birthday.hidden.full
             = itf.label :birthday_name
             = itf.text_field :birthday_name
 
-          - if @voting.persisted?
-            %fieldset
-              = itf.label :_destroy
-              = itf.check_box :_destroy
       %fieldset
         = f.submit
+        = link_to 'Back', admin_votings_path, class: 'btn'
