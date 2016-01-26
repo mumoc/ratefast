@@ -20,4 +20,10 @@ Go and copy the **.env.example** as **.env** with:
 
 `cp .env.example .env`
 
+And update the values with your keys (the ones in the example are dummy)
+
+Then, go ahead and run
+
+`bundle exec rake db:create; bundle exec rake db:migrate; bundle exec rake db:seed`
+
 [new app]:https://github.com/settings/applications/new
