@@ -1,4 +1,5 @@
 # RateFast
+#this is a test
 
 Vote for your favorite meals for the whole week!!
 
