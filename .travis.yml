@@ -1,0 +1,11 @@
+language: ruby
+rvm: 2.2.2
+sudo: false
+
+before_script:
+  - cp config/database.yml config/database.yml.travis
+  - psql -c 'create database ratefast_test' -U postgres
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+
+script: bundle exec rspec
