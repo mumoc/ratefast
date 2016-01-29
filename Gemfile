@@ -21,9 +21,14 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'cucumber-rails', :require => false
+  gem 'database_cleaner'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
-  gem 'spring'
+  gem 'spring', '~> 1.4.0'
+  gem 'spring-commands-rspec'
+  gem 'spring-commands-cucumber'
 end
