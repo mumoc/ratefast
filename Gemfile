@@ -21,6 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do
