@@ -4,9 +4,9 @@ sudo: false
 
 before_script:
   - cp config/database.yml config/database.yml.travis
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  -bundle exec rake db:drop RAILS_ENV=test
-  -bundle exec rake db:create RAILS_ENV=test
-  -bundle exec rake db:schema:load RAILS_ENV=test
+  - bundle exec rake db:drop RAILS_ENV=test
+  - bundle exec rake db:create RAILS_ENV=test
+  - bundle exec rake db:migrate --trace RAILS_ENV=test
+  - bundle exec rake db:test:prepare RAILS_ENV=test
 
 script: bundle exec rspec
