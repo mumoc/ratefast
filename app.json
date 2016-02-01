@@ -1,5 +1,6 @@
 {
   "name": "ratefast",
+  "description": "This app allows you to vote for your favorite meals for the whole week",
   "scripts": {
   },
   "env": {
