@@ -31,4 +31,5 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-commands-cucumber'
+  gem 'rubocop', '~> 0.36.0', require: false
 end
