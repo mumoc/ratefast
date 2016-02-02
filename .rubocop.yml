@@ -5,4 +5,6 @@ Style/Encoding:
 Metrics/LineLength:
   Max: 99
 Style/StringLiterals:
+  Enabled: fals
+Style/StringLiterals:
   Enabled: false
