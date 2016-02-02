@@ -9,8 +9,6 @@ PreCommit:
     enabled: true
   RubyLint:
     enabled: true
-  #RailsBestPractices:
-  #enabled: true
   TravisLint:
     enabled: true
 
