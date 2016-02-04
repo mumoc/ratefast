@@ -22,7 +22,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'rspec-rails', '~> 3.0'
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
 end
 
@@ -31,4 +31,6 @@ group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-commands-cucumber'
+  gem 'rubocop', '~> 0.36.0', require: false
+  gem 'overcommit'
 end
