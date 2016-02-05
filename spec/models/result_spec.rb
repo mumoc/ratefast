@@ -21,7 +21,7 @@ describe Result do
   end
   describe 'by_voting' do
     it "return the results by voting and in ASC form" do
-      expect(Result.by_voting(result.voting_id).count).to eq(1)
+      expect(Result.by_voting(result.voting_id)).not_to be_empty
     end
   end
   describe 'day' do
