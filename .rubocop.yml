@@ -1,0 +1,10 @@
+Rails:
+  Enabled: true
+Style/Encoding:
+  Enabled: false
+Metrics/LineLength:
+  Max: 99
+Style/StringLiterals:
+  Enabled: fals
+Style/StringLiterals:
+  Enabled: false

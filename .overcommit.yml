@@ -1,0 +1,29 @@
+PreCommit:
+  RuboCop:
+    enabled: true
+  CoffeeLint:
+    enabled: true
+  ScssLint:
+    enabled: true
+  HamlLint:
+    enabled: true
+  RubyLint:
+    enabled: true
+  TravisLint:
+    enabled: true
+
+CommitMsg:
+  CapitalizedSubject:
+    enabled: true
+  EmptyMessage:
+    enabled: true
+  HardTabs:
+    enabled: true
+  RussianNovel:
+    enabled: true
+  TextWidth:
+    enabled: true
+
+PrePush:
+  RSpec:
+    enabled: true
