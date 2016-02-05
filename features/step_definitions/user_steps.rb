@@ -19,6 +19,10 @@ def create_user
   @user = FactoryGirl.create(:user, @visitor)
 end
 
+def create_voting
+  @voting = FactoryGirl.create(:voting)
+end
+
 def delete_user
   @user ||= User.where(:email => @visitor[:email]).first
   @user.destroy unless @user.nil?
@@ -77,6 +81,10 @@ end
 When /^I sign up with valid user data$/ do
   create_visitor
   sign_up
+end
+
+When /^An exiting voting is open$/ do
+  create_voting
 end
 
 When /^I sign up with an invalid email$/ do
@@ -183,4 +191,28 @@ end
 
 Then /^I see an invalid login message$/ do
   expect(page).to have_content("Invalid email or password.")
+end
+
+Then /^I show see the message to add my recommendations$/ do
+  visit '/'
+  expect(page).to have_content("What are you waiting for?")
+  expect(page).to have_content("Go ahead and add your recommendations for")
+  expect(page).to have_link("Add my recommendations")
+end
+
+Then /^I should see the form for update voting/ do
+  expect(page).to have_content("Add up to two recommendations")
+  expect(page).to have_content("Title")
+end
+
+Then /^I should see my recommendations/ do
+  expect(page).to have_content("My recommendations")
+end
+
+Then /^I should redirect to login/ do
+  visit new_user_session_path
+end
+
+And /^I clicked on add my recommendations/ do
+  visit voting_path(@voting.id)
 end
