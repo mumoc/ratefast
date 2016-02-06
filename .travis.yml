@@ -10,4 +10,4 @@ before_script:
   - bundle exec rake db:migrate
   - bundle exec rake db:test:prepare
 
-script: bundle exec rspec
+script: bundle exec spring cucumber && bundle exec spring rspec
