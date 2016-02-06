@@ -1,0 +1,27 @@
+{
+  "name": "ratefast",
+  "description": "This app allows you to vote for your favorite meals for the whole week",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:setup; db:migrate"
+  },
+  "env": {
+    "LANG": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ]
+}
